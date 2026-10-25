@@ -1,0 +1,32 @@
+# Credentials / environment
+.env
+.env.*
+!.env.example
+*adminsdk*.json
+*service-account*.json
+*firebase*credentials*.json
+secrets/
+
+# Generated private event data
+/data/*
+!/data/.gitkeep
+*.jsonl
+
+# Python / IDE
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.envrc
+.vscode/
+.idea/
+.DS_Store
+
+# ML experiments (the provided model at weights/best.pt is tracked)
+runs/
+datasets/
+*.onnx
+*.engine
