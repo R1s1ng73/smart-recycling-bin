@@ -28,7 +28,7 @@ flowchart LR
     BUS -.->|receiver implementation unavailable| RX[Other controller / Pi CAN receiver unverified]
 ~~~
 
-**Boundary:** The current Python repo supports optional UART/serial RFID reading, not a Pi CAN receiver. The water-bin Arduino sketch contains MCP2515 CAN transmission calls. These are distinct interfaces and have not been verified together in this source archive.
+**Boundary:** The original Pi CAN receiver remains missing. The Python repository now includes a **new, reconstructed** [read-only SocketCAN example](pi-can-receiver.md), separate from the Streamlit app; it is not evidence that the original design's CAN link worked. The Arduino sketch contains MCP2515 CAN transmission calls. UART RFID and CAN are distinct interfaces and have not been verified together in this source archive.
 
 ## Source files and further reading
 
