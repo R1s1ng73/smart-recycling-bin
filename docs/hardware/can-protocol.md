@@ -28,7 +28,7 @@ An input is treated as active when its digital read is LOW. The code sends on *s
 ## What is confirmed and what is missing
 
 - Present in Arduino source: MCP2515 initialization, CAN IDs, one-byte payloads, and calls to sendMessage.
-- Missing: Raspberry Pi-side CAN initialization/receiver, decoded incoming frames, bus wiring/termination verification, successful capture logs, and end-to-end hardware tests.
+- Missing **from recovered original source**: Raspberry Pi-side CAN receiver, bus wiring/termination verification, successful capture logs, and end-to-end hardware tests. A separate [new reconstructed Pi CAN reader](pi-can-receiver.md) exists, but it has not been validated with physical hardware.
 - Main-bin RFID uses serial output ('UID:' + identifier) and the Pi Python app includes an optional serial RFID parser. That is **UART**, not evidence of Pi CAN reception.
 - The firmware logs a sent message after the call but does not check the return status; it cannot establish acknowledgment or delivery.
 
@@ -38,6 +38,6 @@ An input is treated as active when its digital read is LOW. The code sends on *s
 2. Verify supply, grounds, CAN H/CAN L and physical termination safely before applying power.
 3. Compile the archived Arduino code for the real board and resolve board-specific interrupt and I/O issues.
 4. Use appropriate CAN receiving hardware to record real frame IDs, data, bus errors and communication rate.
-5. If writing replacement Pi receiver code, label it 'reconstructed demo' rather than recovered original code.
+5. A [replacement Pi receiver demonstration](pi-can-receiver.md) is provided. It is explicitly labeled *reconstructed*, not recovered original code.
 
 No automotive ECU integration, automotive safety validation, production-grade reliability or completed Pi CAN receive path is claimed.
