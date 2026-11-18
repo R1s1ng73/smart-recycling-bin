@@ -35,6 +35,7 @@ flowchart LR
 - [Main-bin Arduino sketch](../../firmware/arduino/Main_Bin_Final/Main_Bin_Final.ino)
 - [Water-bin Arduino sketch](../../firmware/arduino/WaterBin_ALL_Final/WaterBin_ALL_Final.ino)
 - [CAN message format](can-protocol.md)
+- [Reconstructed Pi SocketCAN reader and simulation instructions](pi-can-receiver.md)
 - [Firmware review notes](firmware-notes.md)
 
 The original team PDFs are not copied into this public repo: the project materials include other students' identifying details, and permission to publish all original diagrams has not been established. This is a privacy-conscious written summary instead.
