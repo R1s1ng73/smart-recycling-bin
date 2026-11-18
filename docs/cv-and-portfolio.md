@@ -33,3 +33,14 @@ identification, and optional Firebase Firestore event logging.
 technologies if they reflect the hardware and services you personally used.
 Do not claim a mechanical automatic-sorting system, accuracy percentage,
 inference FPS, or production deployment without further evidence.
+
+## Original embedded-hardware context (team project)
+
+The original ModuCycle team design included Arduino-based sensing and actuation, a Raspberry Pi vision system, and CAN bus architecture. The recovered water-bin firmware has MCP2515 CAN-transmission logic configured for 500 kbit/s (CAN IDs 0x036 and 0x0F6), while the main-bin firmware contains ultrasonic/relay and RFID serial logic. See the [hardware documentation](hardware/README.md) and [CAN protocol notes](hardware/can-protocol.md).
+
+**Conservative interview/CV wording:**
+
+- "Contributed to a four-member modular recycling-bin engineering project involving Raspberry Pi vision, Arduino sensor integration and CAN bus design."
+- "Examined and documented MCP2515-based CAN status-message transmission in archived Arduino firmware, including two CAN IDs and one-byte water-level status payloads." (Use this only if you actually did the documentation/review yourself.)
+
+The [Pi CAN reader](hardware/pi-can-receiver.md) was **reconstructed later as a read-only example**; do not present it as original 2024 code or a successfully hardware-tested bus. Do **not** claim you personally implemented the complete original CAN system, a verified Pi-side CAN hardware link, a validated vehicle CAN network, a deployed NB-IoT service or an autonomous mechanical sorter without more evidence. A project proposal is not an implementation record. Your personal role should match what you can defend in an interview.
