@@ -8,9 +8,20 @@ recognition system can classify items into **recyclable**, **non-recyclable**, a
 **QR-code / RFID identification**, and optional **Firebase Firestore event storage**.
 
 > **Scope:** This is a **waste recognition and record-keeping prototype**, not a
-> finished autonomous mechanical sorter. No servo/motor-based physical sorting
-> is implemented in the supplied source code. Performance and deployment claims
-> have not been independently benchmarked.
+> finished autonomous mechanical sorter. The Python application does not
+> control a physical sorter; archived Arduino sketches document separate sensor,
+> pump and compressor relay logic. Complete hardware integration and performance
+> claims have not been independently verified.
+
+## Original ModuCycle embedded hardware (archived)
+
+ModuCycle began as a **four-member EE3070 university engineering project** with a modular bin hardware design in addition to the camera-based software. This repository now preserves the two surviving **Arduino sketches** from that project, alongside the cleaned-up Python vision prototype. The firmware is provided **as archived**, not as a claim of a fully integrated or production-safe build.
+
+- [Main-bin Arduino firmware](firmware/arduino/Main_Bin_Final/Main_Bin_Final.ino): RFID UID output over serial, ultrasonic fill-level monitoring, fire/gas/temperature inputs and compressor relay logic.
+- [Water-bin Arduino firmware](firmware/arduino/WaterBin_ALL_Final/WaterBin_ALL_Final.ino): water sensors, relay-controlled pump and MCP2515 **CAN transmit** status frames (500 kbit/s configured, 8 MHz oscillator, IDs `0x036` and `0x0F6`).
+- [Hardware architecture](docs/hardware/README.md) | [CAN message contract](docs/hardware/can-protocol.md) | [Firmware code review and limits](docs/hardware/firmware-notes.md)
+
+**Verification boundary:** No Pi-side CAN receiving implementation survives in this repo, and the recovered source has not been proven to complete end-to-end Pi/Arduino CAN communication. Optional Pi-side serial RFID is a different interface from CAN. The early proposal and hardware drawings describe the **team design**, not necessarily delivered features. Please attribute team work appropriately. Original scanned team documents are omitted from this public repository to avoid publishing other students' identifiers without permission.
 
 ## Features
 
@@ -186,6 +197,8 @@ smart-recycling-bin/
 │   ├── identity.py             # QR and optional serial RFID input
 │   ├── logic.py                # Classification and detection event tracker
 │   └── storage.py              # Local JSONL / optional Firestore adapters
+├── firmware/arduino/          # Archived main-bin and water-bin Arduino sketches
+├── docs/hardware/            # Hardware, CAN message and firmware notes
 ├── weights/
 │   └── best.pt                 # Supplied YOLO model checkpoint
 ├── tests/                      # Unit tests (no camera or cloud required)
