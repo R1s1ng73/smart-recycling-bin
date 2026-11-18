@@ -196,9 +196,9 @@ smart-recycling-bin/
 │   ├── detection.py            # YOLO inference adapter
 │   ├── identity.py             # QR and optional serial RFID input
 │   ├── logic.py                # Classification and detection event tracker
+│   ├── can_receiver.py         # Reconstructed, read-only SocketCAN receiver
 │   └── storage.py              # Local JSONL / optional Firestore adapters
 ├── firmware/arduino/          # Archived main-bin and water-bin Arduino sketches
-├── smart_bin/can_receiver.py # New read-only Pi CAN receiver (not original source)
 ├── docs/hardware/            # Hardware, CAN message and firmware notes
 ├── weights/
 │   └── best.pt                 # Supplied YOLO model checkpoint
